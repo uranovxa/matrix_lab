@@ -2,6 +2,25 @@
 #include "utils.h"
 #include "matrix_math.h"
 
+
+// класс, проверяющий отсортирован ли массив по убыванию через 1 поле
+class SortedChecker {
+private:
+    bool flag;
+public:
+    SortedChecker(int* sp, int sz) {
+        flag = true;
+        for (int i = 0; i < sz - 1; i++) {
+            if (sp[i] < sp[i + 1]) {
+                flag = false;
+                break;
+            }
+        }
+    }
+    bool result() { return flag; }
+};
+
+
 int main()
 {
     int n, m;
@@ -19,8 +38,9 @@ int main()
     int kol = 0;
     std::cout << "Проверяем строки транспонированной матрицы:\n";
     for (int i = 0; i < m; i++) {
-        // класс SortedChecker будет позже
-        kol++;
+        SortedChecker temp(new_matrix[i], n);
+        if (temp.result())
+            kol++;
     }
     std::cout << kol << std::endl;
 
