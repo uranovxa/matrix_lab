@@ -2,6 +2,26 @@
 #include "utils.h"
 #include "matrix_math.h"
 
+
+// класс-проверка через 2 поля (по стандарту)
+class SortedChecker {
+private:
+    int* sp;
+    int lenght;
+public:
+    SortedChecker(int* arr, int sz) : sp(arr), lenght(sz) {}
+
+    bool result() {
+        for (int i = 0; i < lenght - 1; i++) {
+            if (sp[i] < sp[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+
 int main()
 {
     int n, m;
@@ -19,8 +39,9 @@ int main()
     int kol = 0;
     std::cout << "Проверяем строки транспонированной матрицы:\n";
     for (int i = 0; i < m; i++) {
-        // класс SortedChecker будет позже
-        kol++;
+        SortedChecker temp(new_matrix[i], n);
+        if (temp.result())
+            kol++;
     }
     std::cout << kol << std::endl;
 
