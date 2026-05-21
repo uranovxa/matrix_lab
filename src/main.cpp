@@ -3,21 +3,22 @@
 #include "matrix_math.h"
 
 
-// класс, проверяющий отсортирован ли массив по убыванию через 1 поле
+// класс-проверка через 2 поля (по стандарту)
 class SortedChecker {
 private:
-    bool flag;
+    int* sp;
+    int lenght;
 public:
-    SortedChecker(int* sp, int sz) {
-        flag = true;
-        for (int i = 0; i < sz - 1; i++) {
+    SortedChecker(int* arr, int sz) : sp(arr), lenght(sz) {}
+
+    bool result() {
+        for (int i = 0; i < lenght - 1; i++) {
             if (sp[i] < sp[i + 1]) {
-                flag = false;
-                break;
+                return false;
             }
         }
+        return true;
     }
-    bool result() { return flag; }
 };
 
 
