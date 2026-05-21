@@ -1,5 +1,6 @@
 #include "matrix_math.h"
 
+// ф/я транспонирования матрицы
 void transport_matrix(int n, int k, int** matrix, int** new_matrix)
 {
     for (int i = 0; i < n; i++) {
@@ -9,6 +10,7 @@ void transport_matrix(int n, int k, int** matrix, int** new_matrix)
     }
 }
 
+// ф/я поворота матрицы на 90 градусов по часовой
 void rotateMatrixClockwise(int n, int k, int** matrix, int** new_matrix)
 {
     for (int i = 0; i < n; i++) {
@@ -18,6 +20,7 @@ void rotateMatrixClockwise(int n, int k, int** matrix, int** new_matrix)
     }
 }
 
+// ф/я поворота матрицы против часовой на 90 градусов
 void rotateMatrixCounterClockwise(int n, int k, int** matrix, int** new_matrix)
 {
     for (int i = 0; i < n; i++) {
